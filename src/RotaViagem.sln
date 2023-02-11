@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotaViagem.WebApi", "RotaViagem.WebApi\RotaViagem.WebApi.csproj", "{22EA9DA8-4CEF-430B-BBBD-50B7298CB4E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Core", "1 - Core", "{813A7787-C153-4DFA-85C3-6CA3FA0B1B85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Infra", "2 - Infra", "{82257E0A-E522-45A5-95EB-98648A23BAD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Presentation", "3 - Presentation", "{75800050-BE78-4E64-9F2E-FD1E531CDCE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotaViagem.Application", "RotaViagem.Application\RotaViagem.Application.csproj", "{F00C1646-9BC7-4168-87A6-FAD4C3F37EA2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotaViagem.Domain", "RotaViagem.Domain\RotaViagem.Domain.csproj", "{7CB7E3D0-6558-4125-96DE-8A523D4054B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotaViagem.Infra.Repository", "RotaViagem.Infra.Repository\RotaViagem.Infra.Repository.csproj", "{64F1235A-1556-4428-A932-C2AF0FF1B124}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22EA9DA8-4CEF-430B-BBBD-50B7298CB4E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22EA9DA8-4CEF-430B-BBBD-50B7298CB4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22EA9DA8-4CEF-430B-BBBD-50B7298CB4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22EA9DA8-4CEF-430B-BBBD-50B7298CB4E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F00C1646-9BC7-4168-87A6-FAD4C3F37EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F00C1646-9BC7-4168-87A6-FAD4C3F37EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F00C1646-9BC7-4168-87A6-FAD4C3F37EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F00C1646-9BC7-4168-87A6-FAD4C3F37EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CB7E3D0-6558-4125-96DE-8A523D4054B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CB7E3D0-6558-4125-96DE-8A523D4054B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CB7E3D0-6558-4125-96DE-8A523D4054B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CB7E3D0-6558-4125-96DE-8A523D4054B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64F1235A-1556-4428-A932-C2AF0FF1B124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64F1235A-1556-4428-A932-C2AF0FF1B124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64F1235A-1556-4428-A932-C2AF0FF1B124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64F1235A-1556-4428-A932-C2AF0FF1B124}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{22EA9DA8-4CEF-430B-BBBD-50B7298CB4E5} = {75800050-BE78-4E64-9F2E-FD1E531CDCE7}
+		{F00C1646-9BC7-4168-87A6-FAD4C3F37EA2} = {813A7787-C153-4DFA-85C3-6CA3FA0B1B85}
+		{7CB7E3D0-6558-4125-96DE-8A523D4054B7} = {813A7787-C153-4DFA-85C3-6CA3FA0B1B85}
+		{64F1235A-1556-4428-A932-C2AF0FF1B124} = {82257E0A-E522-45A5-95EB-98648A23BAD2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75658873-7A64-4919-AA7E-0D43699C1E2A}
+	EndGlobalSection
+EndGlobal
