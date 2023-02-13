@@ -1,0 +1,37 @@
+<div mat-dialog-content>
+  <h1 mat-dialog-title>{{ titulo }}</h1>
+  <form #formControl="ngForm">
+    <mat-form-field>
+      <mat-label>Origem</mat-label>
+      <input matInput [(ngModel)]="rota.origem" name="origem" required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Destino</mat-label>
+      <input matInput [(ngModel)]="rota.destino" name="destino" required />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Valor</mat-label>
+      <input
+        type="number"
+        matInput
+        [(ngModel)]="rota.valor"
+        name="valor"
+        required
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="close()" class="btnCancelar">
+    Cancelar
+  </button>
+  <button
+    mat-raised-button
+    [disabled]="!formControl.valid"
+    (click)="salvar()"
+    class="btnSalvar"
+    color="primary"
+  >
+    Salvar
+  </button>
+</div>

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace RotaViagem.Domain.Helpers
 {
@@ -45,9 +43,9 @@ namespace RotaViagem.Domain.Helpers
         {
             foreach (KeyValuePair<string, Vertice> v in g.GetVertices())
             {
-                v.Value.SetDistancia(int.MaxValue);
+                v.Value.SetValor(int.MaxValue);
             }
-            s.SetDistancia(0);
+            s.SetValor(0);
         }
 
         public static Vertice ExtractMin(SortedDictionary<string, Vertice> Q)
@@ -56,7 +54,7 @@ namespace RotaViagem.Domain.Helpers
             Vertice min = Q[key];
             foreach (KeyValuePair<string, Vertice> v in Q)
             {
-                if (v.Value.GetDistancia() < min.GetDistancia())
+                if (v.Value.GetValor() < min.GetValor())
                 {
                     min = v.Value;
                 }
@@ -68,17 +66,12 @@ namespace RotaViagem.Domain.Helpers
         public static void Relax(Vertice u, Vertice v)
         {
 
-            int distancia = u.GetDistancia() + u.GetPeso(v);
+            int valor = u.GetValor() + u.GetPeso(v);
 
-            if (v.GetDistancia() > distancia)
+            if (v.GetValor() > valor)
             {
-                v.SetDistancia(distancia);
+                v.SetValor(valor);
                 v.SetVerticeCaminhoAnterior(u);
-                //Console.WriteLine("Atualizei a distância " + distancia + " do vértice " + u.GetId()  + " para o vértice " + v.GetId());
-            }
-            else
-            {
-                //Console.WriteLine("NÃO atualizei a distância " + distancia + " do vértice " + u.GetId() + " para o vértice " + v.GetId());
             }
         }
 
@@ -119,7 +112,7 @@ namespace RotaViagem.Domain.Helpers
                 rota.Add(v.GetId());
             }
             ret = string.Join(" - ", rota.ToArray());
-            ret += " / Valor: " + verticeAlvo.GetDistancia();
+            ret += " ao custo de $" + verticeAlvo.GetValor();
 
             return ret;
         }

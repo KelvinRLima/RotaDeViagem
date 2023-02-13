@@ -7,6 +7,22 @@ namespace RotaViagem.Domain.Services
     public interface IRotaService
     {
         /// <summary>
+        /// Realiza a pesquisa das origens possíveis.
+        /// </summary>
+        /// <returns>
+        /// Melhor rota.
+        /// </returns>
+        Task<Result<IEnumerable<string>>> GetOrigens();
+
+        /// <summary>
+        /// Realiza a pesquisa dos destinos possíveis.
+        /// </summary>
+        /// <returns>
+        /// Melhor rota.
+        /// </returns>
+        Task<Result<IEnumerable<string>>> GetDestinos();
+
+        /// <summary>
         /// Realiza a pesquisa da melhor rota.
         /// </summary>
         /// <returns>

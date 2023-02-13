@@ -21,6 +21,50 @@ namespace RotaViagem.Application
                 throw new ArgumentNullException(nameof(rotaRepository));
         }
 
+        public async Task<Result<IEnumerable<string>>> GetOrigens()
+        {
+            var result = new Result<IEnumerable<string>>();
+
+            try
+            {
+                IEnumerable<Rota> rotas = await _rotaRepository.GetAllRotas();
+
+                result.Data = rotas.Select(x => x.Origem).Distinct();
+            }
+            catch (Exception ex)
+            {
+                result = new Result<IEnumerable<string>>()
+                {
+                    IsException = true,
+                    Status = false,
+                    Message = "Falha ao consultar lista de rotas: " + ex.Message
+                };
+            }
+            return result;
+        }
+
+        public async Task<Result<IEnumerable<string>>> GetDestinos()
+        {
+            var result = new Result<IEnumerable<string>>();
+
+            try
+            {
+                IEnumerable<Rota> rotas = await _rotaRepository.GetAllRotas();
+
+                result.Data = rotas.Select(x => x.Destino).Distinct();
+            }
+            catch (Exception ex)
+            {
+                result = new Result<IEnumerable<string>>()
+                {
+                    IsException = true,
+                    Status = false,
+                    Message = "Falha ao consultar lista de rotas: " + ex.Message
+                };
+            }
+            return result;
+        }
+
         public async Task<Result<string>> GetRota(string origemSolicitada, string destinoSolicitado)
         {
             var result = new Result<string>();
@@ -39,14 +83,14 @@ namespace RotaViagem.Application
 
                 if (!listCidadesOrigem.Any(x => x == origemSolicitada))
                 {
-                    result.Data = "Origem não encontrada!";
+                    result.Message = "Origem não encontrada!";
                     result.Status = false;
 
                     return result;
                 }
                 if (!listCidadesDestino.Any(x => x == destinoSolicitado))
                 {
-                    result.Data = "Destino não encontrado!";
+                    result.Message = "Destino não encontrado!";
                     result.Status = false;
 
                     return result;
@@ -75,10 +119,17 @@ namespace RotaViagem.Application
                 {
                     string ret = Algoritmo.StringCaminho(caminho, destino);
                     result.Data = ret;
+
+                    var valor = Convert.ToInt32(ret.Split('$')[1]);
+                    if (valor == int.MaxValue || valor-4 == int.MinValue)
+                    {
+                        result.Message = "Rota não encontrada!";
+                        result.Status = false;
+                    }
                 }
                 else
                 {
-                    result.Data = "Rota não encontrada!";
+                    result.Message = "Rota não encontrada!";
                     result.Status = false;
                 }
             }

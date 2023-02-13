@@ -1,0 +1,43 @@
+<div class="mat-elevation-z4">
+  <div mat-dialog-content>
+    <h1 mat-dialog-title>Consulta da Rota de menor valor</h1>
+    <form #formControl="ngForm">
+      <!-- <mat-form-field>
+        <mat-label>Origem</mat-label>
+        <input matInput [(ngModel)]="origem" name="origem" required />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Destino</mat-label>
+        <input matInput [(ngModel)]="destino" name="destino" required />
+      </mat-form-field> -->
+      <mat-form-field appearance="fill">
+        <mat-label>Origem</mat-label>
+        <mat-select [(ngModel)]="selectedOrigem" name="origem">
+          <mat-option *ngFor="let itemOrigem of origem" [value]="itemOrigem">
+            {{itemOrigem}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Destino</mat-label>
+        <mat-select [(ngModel)]="selectedDestino" name="destino">
+          <mat-option *ngFor="let itemDestino of destino" [value]="itemDestino">
+            {{itemDestino}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        [disabled]="!formControl.valid"
+        (click)="pesquisar()"
+        class="btnSalvar"
+        color="primary"
+      >
+        Pesquisar
+      </button>
+    </form>
+    <div class="retorno" *ngIf="retorno != ''">
+      Resposta: {{ retorno }}
+    </div>
+  </div>
+</div>

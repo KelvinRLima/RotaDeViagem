@@ -9,7 +9,7 @@ namespace RotaViagem.Domain.Helpers
     {
         private string _id = string.Empty;
         private Dictionary<Vertice, int> adjacencias = new Dictionary<Vertice, int>();
-        private int _distancia = 0;
+        private int _valor = 0;
         private Boolean _visitado = false;
         private Vertice _verticeAnterior = null;
 
@@ -34,14 +34,14 @@ namespace RotaViagem.Domain.Helpers
             return dicaux;
         }
 
-        public void SetDistancia(int distancia)
+        public void SetValor(int valor)
         {
-            _distancia = distancia;
+            _valor = valor;
         }
 
-        public int GetDistancia()
+        public int GetValor()
         {
-            return _distancia;
+            return _valor;
         }
 
         public int GetPeso(Vertice v)

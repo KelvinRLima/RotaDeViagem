@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+}
+
+.edit {
+    margin-right: 10px;
+}
+
+.edit > i {
+    color: #d9cd26;
+}
+
+.delete > i {
+    color: #e35e6b;
+}
+
+.mat-elevation-z4 {
+    margin-top: 30px;
+}
+
+i {
+    cursor: pointer;
+}

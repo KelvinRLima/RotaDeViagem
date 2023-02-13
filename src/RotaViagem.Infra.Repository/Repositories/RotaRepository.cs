@@ -40,8 +40,8 @@ namespace RotaViagem.Infra
 
         public async Task DeleteRota(int id)
         {
-
-            _context.Remove(id);
+            var rota = _context.Rota.Find(id);
+            _context.Remove(rota);
             _context.SaveChanges();
         }
     }

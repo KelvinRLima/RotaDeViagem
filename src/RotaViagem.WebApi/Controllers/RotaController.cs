@@ -27,6 +27,40 @@ namespace RotaViagem.WebApi.Controllers
         }
 
         // GET: api/<RotaController>
+        [HttpGet("GetOrigens")]
+        [ProducesResponseType(typeof(Result<IEnumerable<Rota>>), 200)]
+        public async Task<IActionResult> GetOrigens()
+        {
+            try
+            {
+                Result<IEnumerable<string>> result = await _rotaService.GetOrigens();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        // GET: api/<RotaController>
+        [HttpGet("GetDestinos")]
+        [ProducesResponseType(typeof(Result<IEnumerable<Rota>>), 200)]
+        public async Task<IActionResult> GetDestinos()
+        {
+            try
+            {
+                Result<IEnumerable<string>> result = await _rotaService.GetDestinos();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        // GET: api/<RotaController>
         [HttpGet("Get/{origem},{destino}")]
         [ProducesResponseType(typeof(Result<string>), 200)]
         public async Task<IActionResult> Get(string origem, string destino)
@@ -80,13 +114,14 @@ namespace RotaViagem.WebApi.Controllers
         }
 
         // PUT: api/<RotaController>
-        [HttpPut("Update")]
+        [HttpPut("Update/{id}")]
         [ProducesResponseType(typeof(Result<bool>), 200)]
-        public async Task<IActionResult> Update([FromBody] RotaDto rotaDto)
+        public async Task<IActionResult> Update([FromBody] RotaDto rotaDto, int id)
         {
             try
             {
                 Rota rota = _mapper.Map<Rota>(rotaDto);
+                rota.Id = id;
 
                 Result<bool> result = await _rotaService.UpdateRota(rota);
 

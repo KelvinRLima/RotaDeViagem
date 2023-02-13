@@ -1,0 +1,7 @@
+.mat-elevation-z4 {
+    margin-top: 10px;
+}
+
+mat-form-field, button, .retorno {
+    margin: 10px;
+}
